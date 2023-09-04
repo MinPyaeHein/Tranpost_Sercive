@@ -19,4 +19,8 @@ class CustomerHomeController extends Controller
     {
          return view('customer.customerOrder');
     }
+    public function create()
+    {
+        return view ('customer.customerRegister');
+    }
 }
