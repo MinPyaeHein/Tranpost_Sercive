@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class ServiceTypeMatchController extends Controller
 {
      public function index()
-    {
-        return view ('admin.serviceTypeMatch.index');
+    {   
+        return view ('admin.service.serviceTypeMatchIndex');
     }
 
  

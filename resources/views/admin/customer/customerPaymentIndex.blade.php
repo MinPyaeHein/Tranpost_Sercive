@@ -64,7 +64,7 @@
                   OID-645
                 </td>
                 <td>Mily Myo</td>
-                <td>Micro</td>
+                <td>Specialized Equipment Transport</td>
                 <td>6700THB</td>
                 <td>2/3/2023</td>
                 <td><a href="{{ route('customerPayment.edit',123) }}" class="btn-sm btn-info">Detail</a></td>
@@ -78,7 +78,7 @@
                   OID-645
                 </td>
                 <td>Mily Myo</td>
-                <td>Micro</td>
+                <td>Specialized Equipment Transport</td>
                 <td>6700THB</td>
                 <td>2/3/2023</td>
                 <td><a href="{{ route('customerPayment.edit',123) }}" class="btn-sm btn-info">Detail</a></td>
@@ -92,7 +92,7 @@
                   OID-645
                 </td>
                 <td>Mily Myo</td>
-                <td>Micro</td>
+                <td>Specialized Equipment Transport</td>
                 <td>6700THB</td>
                 <td>2/3/2023</td>
                 <td><a href="{{ route('customerPayment.edit',123) }}" class="btn-sm btn-info">Detail</a></td>

@@ -47,9 +47,14 @@
           ],
          
           [  
-            'prefix'=> 'serviceCar',
-            'route' => 'serviceCar.index',
+            'prefix'=> 'serviceCars',
+            'route' => 'serviceCars.index',
             'title' => 'Service Car',
+      ],
+      [  
+            'prefix'=> 'serviceCarDriver',
+            'route' => 'serviceCarDriver.index',
+            'title' => 'Service Car Driver',
           ]
          
         ];

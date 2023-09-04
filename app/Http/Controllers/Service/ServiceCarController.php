@@ -12,7 +12,7 @@ class ServiceCarController extends Controller
      */
     public function index()
     {
-        return view ('admin.serviceCar.index');
+        return view ('admin.service.serviceCarIndex');
     }
 
     

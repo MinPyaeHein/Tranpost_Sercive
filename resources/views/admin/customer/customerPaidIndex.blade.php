@@ -49,14 +49,15 @@
                 <th>Cus Name</th>
                 <th>ServiceType</th>
                 <th>Total Fee</th>
-                <th>Acc-no</th>
-                <th>Acc-name</th>
+               
                 <th>Date</th>
-                <th>Payment Type</th>
+              
+                <th>Detail</th>
                 <th>Delete</th>
               </tr>
               </thead>
               <tbody>
+           
               <tr>
                 <td>
                   CID-234
@@ -65,13 +66,13 @@
                   OID-645
                 </td>
                 <td>Mily Myo</td>
-                <td>Micro</td>
+                <td>Heavy-Duty Vehicle Transport</td>
                 <td>6700THB</td>
-                <td>645.....767</td>
-                <td>Myo Yandanar</td>
                 <td>23/4/2023</td>
-                <td>Scan</td>
+                <td><a href="#" class="btn-sm btn-info">Detail</a></td>
                 <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
+             
+               
               </tr>
               <tr>
                 <td>
@@ -81,13 +82,13 @@
                   OID-645
                 </td>
                 <td>Mily Myo</td>
-                <td>Micro</td>
+                <td>Heavy-Duty Vehicle Transport</td>
                 <td>6700THB</td>
-                <td>645.....767</td>
-                <td>Myo Yandanar</td>
                 <td>23/4/2023</td>
-                <td>Scan</td>
+                <td><a href="#" class="btn-sm btn-info">Detail</a></td>
                 <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
+             
+               
               </tr>
               <tr>
                 <td>
@@ -97,15 +98,15 @@
                   OID-645
                 </td>
                 <td>Mily Myo</td>
-                <td>Micro</td>
+                <td>Heavy-Duty Vehicle Transport</td>
                 <td>6700THB</td>
-                <td>645.....767</td>
-                <td>Myo Yandanar</td>
                 <td>23/4/2023</td>
-                <td>Scan</td>
+                <td><a href="#" class="btn-sm btn-info">Detail</a></td>
                 <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
+             
+               
               </tr>
-     
+                  
      
 
  
@@ -117,10 +118,9 @@
                   <th>Cus Name</th>
                   <th>ServiceType</th>
                   <th>Total Fee</th>
-                  <th>Acc-no</th>
-                  <th>Acc-name</th>
                   <th>Date</th>
-                  <th>Payment Type</th>
+                 
+                  <th>Detail</th>
                   <th>Delete</th>
                 </tr>
               </tfoot>

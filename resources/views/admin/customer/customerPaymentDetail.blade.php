@@ -81,14 +81,7 @@
                     
                     </select>
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Normal Service Fee</label>
-                    <input type="text" class="form-control" id="totalPrice" value="2000 THB">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Extra Service Fee</label>
-                    <input type="text" class="form-control" id="extraPrice" value="2000 THB">
-                  </div>
+                  
                   
                 
                 </div>
@@ -114,11 +107,7 @@
                         <label for="exampleInputEmail1">Note</label>
                         <textarea class="form-control" id="phone" rows='4'>I am not the individual you may have observed standing by the black car while wearing a red shirt. Please direct any inquiries or information to the correct person. Thank you for your attention</textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Price Note From Admin</label>
-                        <textarea class="form-control" id="phone" rows='4'>Shipping Surcharge: 200 THBThis clearly communicates to customers that there is a 200 THB fee associated with the "Shipping Surcharge" service. You can apply this charge as needed based on your shipping policy and the customer's location or specific shipping requirements. 
-                        </textarea>
-                    </div>
+                  
                     <div class="form-group">
                         <label for="exampleInputEmail1">Total Service Fee</label>
                         <input type="text" class="form-control" id="extraPrice" value="4000 THB">

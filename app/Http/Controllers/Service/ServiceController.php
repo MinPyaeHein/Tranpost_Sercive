@@ -12,48 +12,11 @@ class ServiceController extends Controller
      */
     public function index()
     {
-         return view ('admin.service.index');
+         return view ('admin.service.serviceIndex');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-         return view ('admin.service.create');
-    }
-
-    
-    public function store(Request $request)
-    {
-          return redirect('admin.services');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-         return view('admin.service.show');
-    }
-
-   
     public function edit(string $id)
     {
-         return view('admin.service.edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        return redirect('admin.services');
-    }
-
-    
-    public function destroy(string $id)
-    {
-        return redirect('admin.services');
+         return view('admin.service.serviceDetail');
     }
 }
