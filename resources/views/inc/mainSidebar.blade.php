@@ -35,27 +35,29 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         @php
         $menuService = [
-          [ 
-            'prefix'=> 'services',
-            'route' => 'services.index',
-            'title' => ' Avariable Services',
-          ],
-          [ 
-            'prefix'=> 'serviceTypeMatch',
-            'route' => 'serviceTypeMatch.index',
-            'title' => ' Service Type and Car',
-          ],
+         
          
           [  
             'prefix'=> 'serviceCars',
             'route' => 'serviceCars.index',
             'title' => 'Service Car',
-      ],
-      [  
-            'prefix'=> 'serviceCarDriver',
-            'route' => 'serviceCarDriver.index',
+          ],
+
+          [  
+            'prefix'=> 'serviceCarCreate',
+            'route' => 'serviceCarCreate.create',
+            'title' => 'Car Register',
+          ],
+          [  
+            'prefix'=> 'serviceCarDrivers',
+            'route' => 'serviceCarDrivers.index',
             'title' => 'Service Car Driver',
-          ]
+        ],
+        [  
+            'prefix'=> 'serviceCarDriverCreate',
+            'route' => 'serviceCarDriverCreate',
+            'title' => 'Driver Register',
+          ],
          
         ];
         $menuCustomer = [
@@ -92,23 +94,23 @@
         $menuAdmin = [
           [ 
             'prefix'=> 'admins',
-            'route' => 'admin.index',
+            'route' => 'admins.index',
             'title' => 'Admins',
           ],
           [ 
             'prefix'=> 'adminRoles',
-            'route' => 'adminRoles.index',
+            'route' => 'adminRoles.roles',
             'title' => 'Admin Roles',
           ],
           [ 
-            'prefix'=> 'manageRoles',
-            'route' => 'manageRoles.index',
-            'title' => 'Manage Roles',
-          ],
-         
-         
+            'prefix'=> 'adminCreate',
+            'route' => 'admin.create',
+            'title' => 'Admin Register',
+          ],        
         ];
         @endphp
+
+        
            
         <li class="nav-item  info{{ Request::is('service*') ? ' menu-open' : '' }}">
           <a href="#" class="nav-link{{ Request::is('service*') ? ' active' : '' }}">
@@ -149,29 +151,28 @@
             @endforeach
           </ul>
         </li>
-        <li class="nav-item  ">
-          <a href="#" class="nav-link">
+      
+
+        <li class="nav-item  info{{ Request::is('admin*') ? ' menu-open' : '' }}">
+          <a href="#" class="nav-link{{ Request::is('admin*') ? ' active' : '' }}">
             <i class="nav-icon fas fa-edit"></i>
             <p>
-              Admin Pages
+             Admin Pages
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             @foreach ($menuAdmin as $menuItem)
             <li class="nav-item">                                        
-              <a href="#" class="nav-link">
+              <a href="{{ route($menuItem['route']) }}" class="nav-link {{ Request::is($menuItem['prefix'].'*') ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>{{$menuItem['title']}}</p>
               </a>
             </li>
             @endforeach
           </ul>
-        </li>
-     
-      </ul>
-     
-      
+        </li>     
+      </ul>    
     </nav>
   </div>
 </aside>

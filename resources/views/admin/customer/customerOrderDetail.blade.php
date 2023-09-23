@@ -53,7 +53,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Customer Name</label>
-                    <input type="text" class="form-control" id="name" value="Mily Myo">
+                    <input type="text" class="form-control" id="name" value="">
                    </div>
                    <div class="form-group">
                     <label>Conductions</label>

@@ -18,12 +18,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Service Types</h1>
+          <h1>Show all Admin Rows</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Service Types</li>
+            <li class="breadcrumb-item active">Admin</li>
           </ol>
         </div>
       </div>
@@ -40,51 +40,42 @@
         <div class="card">
           <div class="card-header">
             
-            <a href="{{route('serviceCarCreate.create')}}" class="btn-sm btn-success">Add New Service Car +</a>
+            <a href="#" class="btn-sm btn-success">Add Admin Rows +</a>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Image</th>
-                <th>Car Name</th>
-                <th>Car No</th>
-                <th>Size</th>
-                <th>Price Per Kilo</th>
-                <th>Driver</th>
-                <th>Update</th>
+              
+                <th>Name of Admin</th>
+                <th>Row Name</th>
+                <th>Email</th>
+                <th>Status</th>
                 <th>Delete</th>
               </tr>
               </thead>
               <tbody>
-                @foreach ($serviceCars as $index => $serviceCar)
-                <tr>
-                  <td>
-                    <img src=" {{asset('storage/carrierCar/towerTruck.png')}}" alt="Image" width="90" height="60">
-                  </td>
-                  <td>{{$serviceCar->name}}</td>
-                  <td>{{$serviceCar->car_no}}</td>
-                  <td>{{$serviceCar->size}}</td>
-                  <td>{{$serviceCar->price}}</td>
-                  <td>{{$serviceCar->user->name}}</td>
-                 
-                  <td><a href="#" class="btn-sm btn-info">Detail</a></td>
-                  <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
-                </tr>
-                @endforeach
-             
+           
+              <tr>
+                
+                <td>Zaw Zaw</td>
+                <td>Customer Register</td>
+                <td>zawzaw223@gmail.com</td>
+                <td>Inactive</td>
+                <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
+              </tr>
+ 
+ 
               </tbody>
               <tfoot>
                 <tr>
-                  <th>Image</th>
-                  <th>Car Name</th>
-                  <th>Car No</th>
-                  <th>Size</th>
-                  <th>Price Per Kilo</th>
-                  <th>Driver</th>
-                  <th>Update</th>
-                  <th>Delete</th>
+          
+                <th>Name</th>
+                <th>Phone No</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Delete</th>
                 </tr>
               </tfoot>
             </table>

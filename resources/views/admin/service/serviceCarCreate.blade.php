@@ -1,4 +1,4 @@
-@extends('layout.appCus')
+@extends('layout.app')
 @section('title') Group Structure @endsection
 
 @section('css-place')
@@ -18,27 +18,26 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Customer Register</h1>
+          <h1>Service Cars</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Register</li>
+            <li class="breadcrumb-item active">Service Care</li>
           </ol>
         </div>
       </div>
     </div><!-- /.container-fluid -->
   </section>
 
-  <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
       <!-- SELECT2 EXAMPLE -->
-      <form action='{{route('customerHome.store')}}' method="post" enctype="multipart/form-data" id='regform'>
+      <form action='{{route('serviceCars.store')}}' method="post" enctype="multipart/form-data" id='regform'>
         @csrf
         <div class="card card-default">
         <div class="card-header">
-          <h3 class="card-title">Customer Register </h3>
+          <h3 class="card-title">Service Car Register Form</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -50,50 +49,49 @@
             <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Customer Name</label>
+                    <label for="">Car Name</label>
                     <input type="text" class="form-control" id="extraPrice" name="name" value="">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Password </label>
-                  <input type="password" class="form-control" id="extraPrice" name="password" value="">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Confirm Password</label>
-                <input type="password" class="form-control" id="extraPrice"  value="">
-            </div>
-           
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Address</label>
-                    <textarea class="form-control" id="phone"name="address" rows='4'></textarea>
-                  </div>
-                 
+                  <label for="">Car NO </label>
+                  <input type="" class="form-control" id="extraPrice" name="car_no" value="">
+                </div>
+                <div class="form-group">
+                  <label for="">Size</label>
+                  <input type="" class="form-control" id="extraPrice" name="size" value="">
+                </div>
                 
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="exampleInputEmail1"> Email</label>
-                        <input type="text" class="form-control" id="email" name="email" value="">
-                    </div>
+                        <label for=""> Price Per Kilometer</label>
+                        <input type="number" class="form-control" id="price" name="price" value="">
+                    </div>    
                     <div class="form-group">
-                        <label for="exampleInputEmail1"> National ID</label>
-                        <input type="text" class="form-control" name="national_id" value="">
-                    </div>
-                    
+                      <label for=""> Service Type Name</label>
+                      <input type="text" class="form-control" id="service_type" name="service_type" value="">
+                  </div>                 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" value="">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Note</label>
-                        <textarea class="form-control" id="phone" name="note" rows='4'></textarea>
+                      <label>Driver</label>
+                      <select class="form-control select2" style="width: 100%;" name="driver_id">
+                        @foreach ($drivers as $index => $driver)
+                          <option value="{{ $driver->id }}">{{$driver->name}}</option>
+                        @endforeach
+                      </select>
                     </div>
                 </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                        <textarea class="textarea" placeholder="Place some text here" name="desc"
+                                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                 </div>
+                </div>
+
               </div>
          </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-info">Submit</button>
-            <a href="{{route('admins.index')}}" class="btn btn-default float-right">Cancel</button>
+            <a href="{{route('serviceCars.index')}}" class="btn btn-default float-right">Cancel</button>
         </div>
       </div>
       </form>
@@ -102,14 +100,15 @@
      
       <!-- /.row -->
     </div><!-- /.container-fluid -->
-</section>
-  <!-- /.content -->
-</div>
+  </section>
 
+ 
+</div>
 
 @section('js-place')
 <script>
  $(function () {
+    $('.textarea').summernote()
     $("#example1").DataTable();
     $('#example2').DataTable({
       "paging": true,
@@ -120,6 +119,8 @@
       "autoWidth": false,
     });
   });
+
+  
  
 
   

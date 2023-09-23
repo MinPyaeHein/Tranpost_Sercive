@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title') Group Structure @endsection
+@section('title') Co Transport @endsection
 
 @section('css-place')
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -18,7 +18,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Show all Customer</h1>
+          <h1>Show all Customers</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -40,7 +40,7 @@
         <div class="card">
           <div class="card-header">
             
-            <a href="#" class="btn-sm btn-success">Add New Customer +</a>
+            <a href="{{ route('customerHome.create') }}" class="btn-sm btn-success">Add New Customer +</a>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -51,53 +51,25 @@
                 <th>Name</th>
                 <th>Phone No</th>
                 <th>Email</th>
+                <th>National_id</th>
                 <th>Status</th>
                 <th>Delete</th>
               </tr>
               </thead>
               <tbody>
-           
+             @foreach ($users as $index => $user)
               <tr>
                 <td>
                   <img src=" {{asset('storage/customer/avatar.png')}}" alt="Image" width="90" height="60">
                 </td>
-                <td>Zaw Zaw</td>
-                <td> 0957190998</td>
-                <td>zawzaw223@gmail.com</td>
-                <td>Inactive</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->phone}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->national_id}}</td>
+                <td>{{$user->status}}</td>
                 <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
               </tr>
-              <tr>
-                <td>
-                  <img src=" {{asset('storage/customer/avatar2.png')}}" alt="Image" width="90" height="60">
-                </td>
-                <td>Thiri</td>
-                <td>0957190998</td>
-                <td>thiri345@gmail.com</td>
-                <td>Inactive</td>
-                <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
-              </tr>
-              <tr>
-                <td>
-                  <img src=" {{asset('storage/customer/avatar4.png')}}" alt="Image" width="90" height="60">
-                </td>
-                <td>Sein</td>
-                <td>0978564453</td>
-                <td>sein46465@gmail.com</td>
-                <td>Active</td>
-                <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
-              </tr>
-              <tr>
-                <td>
-                  <img src=" {{asset('storage/customer/avatar5.png')}}" alt="Image" width="90" height="60">
-                </td>
-                <td>Chit Thiri Zaw</td>
-                <td>0953495394</td>
-                <td>chitthirizaw@gmail.com</td>
-                <td>Active</td>
-                <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
-              </tr>
-
+             @endforeach
  
               </tbody>
               <tfoot>
@@ -106,6 +78,7 @@
                 <th>Name</th>
                 <th>Phone No</th>
                 <th>Email</th>
+                <th>National_id</th>
                 <th>Status</th>
                 <th>Delete</th>
                 </tr>

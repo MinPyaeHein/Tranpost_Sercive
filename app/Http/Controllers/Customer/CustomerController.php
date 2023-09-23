@@ -1,14 +1,20 @@
 <?php
 
 namespace App\Http\Controllers\Customer;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+
     public function index()
     {
-        return view ('admin.customer.customerIndex');
+        $query = "SELECT * FROM users where type='customer'";
+        $users = DB::select($query);
+        return view ('admin.customer.customerIndex',compact('users'));
     }
+  
+   
+
 }

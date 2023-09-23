@@ -1,4 +1,4 @@
-@extends('layout.appCus')
+@extends('layout.app')
 @section('title') Group Structure @endsection
 
 @section('css-place')
@@ -11,34 +11,31 @@
 <link rel="stylesheet" href="{{asset('dist/css/custom.css')}}">
 @endsection
 @section('contents')
-
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1>Customer Register</h1>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Admin Register </h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Customer</li>
+            </ol>
+          </div>
         </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Register</li>
-          </ol>
-        </div>
-      </div>
-    </div><!-- /.container-fluid -->
-  </section>
-
-  <!-- Main content -->
-  <section class="content">
+      </div><!-- /.container-fluid -->
+</section>
+<section class="content">
     <div class="container-fluid">
       <!-- SELECT2 EXAMPLE -->
-      <form action='{{route('customerHome.store')}}' method="post" enctype="multipart/form-data" id='regform'>
+      <form action='{{route('admins.store')}}' method="post" enctype="multipart/form-data" id='regform'>
         @csrf
         <div class="card card-default">
         <div class="card-header">
-          <h3 class="card-title">Customer Register </h3>
+          <h3 class="card-title">Admin Register Form</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -50,7 +47,7 @@
             <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Customer Name</label>
+                    <label for="exampleInputEmail1">Admin Name</label>
                     <input type="text" class="form-control" id="extraPrice" name="name" value="">
                 </div>
                 <div class="form-group">
@@ -103,9 +100,7 @@
       <!-- /.row -->
     </div><!-- /.container-fluid -->
 </section>
-  <!-- /.content -->
 </div>
-
 
 @section('js-place')
 <script>
