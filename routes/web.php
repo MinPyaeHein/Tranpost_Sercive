@@ -88,6 +88,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::resource("/customerHistory", CustomerOrderHistoryController::class);
     Route::resource("/customerPayment", CustomerPaymentController::class);
     Route::resource("/customerPaid", CustomerPaidController::class);
+
+    Route::get('/customerHome/order/{id}', [CustomerHomeController::class, 'orderDetail'])->name('customer.orderDetail');
+    Route::post('/customerHome/orderConfrim', [CustomerHomeController::class, 'orderConfrim'])->name('customer.orderConfrim');
 });
 
 Route::group(['middleware' => ['auth', 'driver']], function () {
@@ -106,10 +109,11 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 
-Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['guest']], function () {
     Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::get('/login', [LoginController::class, 'show'])->name('login.show');
     Route::get('/show', [LoginController::class, 'show'])->name('show');
 });
+
 Route::resource("/customerHome", CustomerHomeController::class);
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');

@@ -46,80 +46,47 @@
               <tr>
                 <th>O-ID</th>
                 <th>Service Type</th>
-             
-                <th>Name</th>
+                <th>Service Car</th>
+                <th>Driver ID</th>
+                <th>Cus ID</th>
                 <th>Phone</th>
                 <th>Conduction</th>
                 <th>Address</th>
-                <th>Kilometer</th>
+                <th>Status</th>
                 <th>Show Detail</th>
                 <th>Delete</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>O-ID01</td>
-                <td>
-                  <img src=" {{asset('storage/serviceTypeCar/car.png')}}" alt="Image" width="90" height="60">
-                </td>
-                <td>CID-223-Arabel</td>
-                <td>0953453453</td>
-                <td>Accident</td>
-                <td>N0207, Nakhon Ratchasima....</td>
-                <td>230km</td>
-                <td><a href="{{ route('customerOrder.edit',123) }}" class="btn-sm btn-info">Detail</a></td>
-                <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
-              </tr>
-              <tr>
-                <td>O-ID01</td>
-                <td>
-                  <img src=" {{asset('storage/serviceTypeCar/car.png')}}" alt="Image" width="90" height="60">
-                </td>
-                <td>CID-256-Anni</td>
-                <td>0953453453</td>
-                <td>Accident</td>
-                <td>N0207, Nakhon Ratchasima....</td>
-                <td>230km</td>
-                <td><a href="{{ route('customerOrder.edit',123) }}" class="btn-sm btn-info">Detail</a></td>
-                <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
-              </tr>
-              <tr>
-                <td>O-ID02</td>
-                <td>
-                  <img src=" {{asset('storage/serviceTypeCar/miniVan.jpg')}}" alt="Image" width="90" height="60">
-                </td>
-                <td>CID-7756-Yahmone</td>
-                <td>0953453453</td>
-                <td>Normal</td>
-                <td>N0207, Nakhon Ratchasima....</td>
-                <td>270km</td>
-                <td><a href="{{ route('customerOrder.edit',123) }}" class="btn-sm btn-info">Detail</a></td>
-                <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
-              </tr>
-              <tr>
-                <td>O-ID03</td>
-                <td>
-                  <img src=" {{asset('storage/serviceTypeCar/motorCycle.jpg')}}" alt="Image" width="90" height="60">
-                </td>
-                <td>CID-7576-Ammy</td>
-                <td>0953453453</td>
-                <td>Accident</td>
-                <td>N0207, Nakhon Ratchasima....</td>
-                <td>230km</td>
-                <td><a href="{{ route('customerOrder.edit',123) }}" class="btn-sm btn-info">Detail</a></td>
-                <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
-              </tr>
+              @foreach ($orders as $index => $order)
+                <tr>
+                  <td>OID-{{$order->id}}</td>
+                  <td>{{$order->service_type}}</td>
+                  <td>{{$order->name}}</td>
+                  <th>DID-{{$order->driver_id}}</th>
+                  <td>OID-{{$order->user_id}}</td>
+                  <td>{{$order->phone}}</td>
+                  <td>{{$order->conduction}}</td>
+                  <td>{{$order->address}}</td>
+                  <td>{{$order->status}}</td>
+                  <td><a href="{{ route('customerOrder.edit',123) }}" class="btn-sm btn-info">Detail</a></td>
+                  <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
+                </tr>
+              @endforeach
+          
  
               </tbody>
               <tfoot>
                 <tr>
                   <th>O-ID</th>
                   <th>Service Type</th>
-                  <th>Name</th>
+                  <th>Service Car</th>
+                  <th>Driver ID</th>
+                  <th>Cus ID</th>
                   <th>Phone</th>
                   <th>Conduction</th>
                   <th>Address</th>
-                  <th>Kilometer</th>
+                  <th>Status</th>
                   <th>Show Detail</th>
                   <th>Delete</th>
                 </tr>

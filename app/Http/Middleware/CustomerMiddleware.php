@@ -20,6 +20,6 @@ class CustomerMiddleware
             return $next($request);
         }
 
-        return abort(403, 'Unauthorized');
+        return view('auth.login');
     }
 }
