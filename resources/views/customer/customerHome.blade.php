@@ -25,20 +25,20 @@
             <!-- /.card-header -->
             <div class="card-body">
              
-
+            @foreach ($cars as $index => $car)
               <!-- Attachment -->
               <div class="attachment-block clearfix">
                 <div class="row">
                   <div class="col-md-1">
-                      <img  src="{{asset('storage/orderdetail/accident1.jfif')}}" alt="Attachment Image" width="200" height="130">
+                      <img  src="{{asset('storage/service_car/'.$car->image_name )}}" alt="Attachment Image" width="200" height="130">
                   </div>
                   <div class="col-md-11">
                       <div class="attachment-pushed">
-                        <h4 class="attachment-heading"><a href="{{ route('customerHome.edit',123) }}">Heavy-Duty Vehicle Transport</a></h4>
+                        <h4 class="attachment-heading"><a href="{{ route('customerHome.edit',$car->id) }}">{{$car->service_type}}({{$car->name}})</a></h4>
 
                         <div class="attachment-text">
-                          When it comes to moving the big stuff, trust our Heavy-Duty Vehicle Transport service. We specialize in transporting heavy-duty vehicles like trucks, buses, construction equipment, and large machinery. With a fleet of specialized carriers and experienced drivers, we ensure safe and efficient transport, no matter the size. Whether you need to relocate your construction fleet or transport oversized machinery, we've got you covered.... 
-                          <a href="{{ route('customerHome.edit',123) }}">more</a>
+                        {{$car->short_desc}}
+                          <a href="{{ route('customerHome.edit',$car->id) }}">more</a>
                         </div>
                         <!-- /.attachment-text -->
                       </div>
@@ -46,63 +46,8 @@
                 </div>
                 <!-- /.attachment-pushed -->
               </div>
-              <div class="attachment-block clearfix">
-                <div class="row">
-                  <div class="col-md-1">
-                      <img  src="{{asset('storage/orderdetail/accident2.jfif')}}" alt="Attachment Image" width="200" height="130">
-                  </div>
-                  <div class="col-md-11">
-                      <div class="attachment-pushed">
-                        <h4 class="attachment-heading"><a href="{{ route('customerHome.edit',123) }}">Accident and Salvage Vehicle Transport</a></h4>
-
-                        <div class="attachment-text">
-                         When accidents happen, and vehicles are damaged, our Accident and Salvage Vehicle Transport service is here to assist. We specialize in the careful transport of accident-damaged cars, salvage vehicles, and those involved in accidents that require recovery and transportation. Our trained professionals handle each vehicle with precision, ensuring it arrives safely at its destination. ... 
-                         <a href="{{ route('customerHome.edit',123) }}">more</a>
-                        </div>
-                        <!-- /.attachment-text -->
-                      </div>
-                  </div>
-                </div>
-                <!-- /.attachment-pushed -->
-              </div>
-              <div class="attachment-block clearfix">
-                <div class="row">
-                  <div class="col-md-1">
-                      <img  src="{{asset('storage/orderdetail/accident1.jfif')}}" alt="Attachment Image" width="200" height="130">
-                  </div>
-                  <div class="col-md-11">
-                      <div class="attachment-pushed">
-                        <h4 class="attachment-heading"><a href="{{ route('customerHome.edit',123) }}">Specialized Equipment Transport</a></h4>
-
-                        <div class="attachment-text">
-                          When it comes to moving the big stuff, trust our Heavy-Duty Vehicle Transport service. We specialize in transporting heavy-duty vehicles like trucks, buses, construction equipment, and large machinery. With a fleet of specialized carriers and experienced drivers, we ensure safe and efficient transport, no matter the size. Whether you need to relocate your construction fleet or transport oversized machinery, we've got you covered.... 
-                          <a href="{{ route('customerHome.edit',123) }}">more</a>
-                        </div>
-                        <!-- /.attachment-text -->
-                      </div>
-                  </div>
-                </div>
-                <!-- /.attachment-pushed -->
-              </div>
-              <div class="attachment-block clearfix">
-                <div class="row">
-                  <div class="col-md-1">
-                      <img  src="{{asset('storage/orderdetail/accident2.jfif')}}" alt="Attachment Image" width="200" height="130">
-                  </div>
-                  <div class="col-md-11">
-                      <div class="attachment-pushed">
-                        <h4 class="attachment-heading"><a href="{{ route('customerHome.edit',123) }}">Motorcycle and Recreational Vehicle Transport</a></h4>
-
-                        <div class="attachment-text">
-                         When accidents happen, and vehicles are damaged, our Accident and Salvage Vehicle Transport service is here to assist. We specialize in the careful transport of accident-damaged cars, salvage vehicles, and those involved in accidents that require recovery and transportation. Our trained professionals handle each vehicle with precision, ensuring it arrives safely at its destination. ... 
-                         <a href="{{ route('customerHome.edit',123) }}">more</a>
-                        </div>
-                        <!-- /.attachment-text -->
-                      </div>
-                  </div>
-                </div>
-                <!-- /.attachment-pushed -->
-              </div>
+            @endforeach
+            
               <!-- /.attachment-block -->
 
               <!-- Social sharing buttons -->

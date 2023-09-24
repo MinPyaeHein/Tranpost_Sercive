@@ -11,7 +11,6 @@ class LogoutController extends Controller
     public function logout(Request $request)
     {
         try {
-            //dd('Arriving log out');
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();

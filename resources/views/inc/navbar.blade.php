@@ -11,7 +11,7 @@
         <a href="#" class="nav-link">Login</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">LogOut</a>
+        <a href="{{ route('logout') }}" class="nav-link">LogOut</a>
       </li>
      
     </ul>

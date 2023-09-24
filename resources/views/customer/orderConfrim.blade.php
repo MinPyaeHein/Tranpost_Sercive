@@ -49,10 +49,12 @@
           <div class="card-body">
               <div class="row">
                   <div class="col-md-6">
-                
+                    <input type="hidden" class="form-control" id="car_id" name="car_id" value="{{$car[0]->id}}" >
+                    <input type="hidden" class="form-control" id="cus_id" name="cus_id" value="{{ auth()->user()->id }}" >
+
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Customer Name</label>
-                      <input type="text" class="form-control" id="name" name="name" >
+                      <label for="exampleInputEmail1">Service Name</label>
+                      <input type="text" class="form-control" id="name" name="service_type"  value={{$car[0]->service_type}}>
                     </div>
                     <div class="form-group">
                       <label>Conductions</label>
@@ -103,17 +105,18 @@
                  
                   </div>
                   <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Sercive Car Name</label>
+                      <input type="text" class="form-control" id="" name="car_name" value="{{$car[0]->name}}">
+                  </div>
                       <div class="form-group">
-                          <label for="exampleInputEmail1">Customer ID</label>
-                          <input type="text" class="form-control" id="customerId" value="CID-3455">
+                          <label for="exampleInputEmail1">Customer Name</label>
+                          <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}">
                       </div>
-                      <div class="form-group">
-                          <label for="exampleInputEmail1">Order ID</label>
-                          <input type="text" class="form-control" id="orderId" value="OID-543">
-                      </div>
+                      
                       <div class="form-group">
                           <label for="exampleInputEmail1">Phone</label>
-                          <input type="text" class="form-control" id="phone" value="" name="phone">
+                          <input type="text" class="form-control" id="phone" value="{{ auth()->user()->phone }}" name="phone">
                       </div>
                     
                       <div class="form-group">

@@ -19,7 +19,8 @@ class User extends Authenticatable
         'national_id',
         'address',
         'note',
-        'status'
+        'status',
+        'image_name'
     ];
     protected $hidden = [
         'password',

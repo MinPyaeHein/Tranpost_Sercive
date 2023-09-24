@@ -61,8 +61,7 @@
                 @foreach ($serviceCars as $index => $serviceCar)
                 <tr>
                   <td>
-                    <img src=" {{asset('storage/carrierCar/towerTruck.png')}}" alt="Image" width="90" height="60">
-                  </td>
+                    <img src=" {{asset('storage/service_car/'.$serviceCar->image_name)}}" alt="Image" width="90" height="60">
                   <td>{{$serviceCar->name}}</td>
                   <td>{{$serviceCar->car_no}}</td>
                   <td>{{$serviceCar->size}}</td>

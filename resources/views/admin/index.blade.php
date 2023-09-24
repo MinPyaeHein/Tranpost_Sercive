@@ -60,7 +60,7 @@
              @foreach ($users as $index => $user)
               <tr>
                 <td>
-                  <img src=" {{asset('storage/customer/avatar.png')}}" alt="Image" width="90" height="60">
+                  <img src=" {{asset('storage/admins/'.$user->image_name)}}" alt="Image" width="90" height="60">
                 </td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->phone}}</td>

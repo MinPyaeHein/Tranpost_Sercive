@@ -15,19 +15,13 @@ class LoginController extends Controller
      * 
      * @return Renderable
      */
-    public function showLoginForm()
+    public function show()
     {
-        // dd("Arrive Show");
+
         return view('auth.login');
     }
 
-    /**
-     * Handle account login request
-     * 
-     * @param LoginRequest $request
-     * 
-     * @return \Illuminate\Http\Response
-     */
+
     function login(Request $request)
     {
         // dd($request);
@@ -38,13 +32,14 @@ class LoginController extends Controller
         try {
             if (Auth::attempt($request->only(['email', 'password']))) {
                 $request->session()->regenerate();
-
-                return redirect()->route('dashboard.home')->with('msg', 'User login successfully');
+                //   dd("successful");
+                return redirect()->route('adminHome')->with('msg', 'User login successfully');
             } else {
-
+                //  dd("failed");
                 return redirect()->back()->with('msg', 'User not loged in');
             }
         } catch (\Exception $e) {
+            // dd("failed");
             return redirect()->back()->with('msg', 'User not loged in');
         }
     }

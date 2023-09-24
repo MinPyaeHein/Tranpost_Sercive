@@ -47,8 +47,21 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="row justify-content-center">
+                <img src="{{ asset('storage/img/default.png')}}" class="img-fluid mx-auto" alt="..." style="height: 200px; width: 300px;" id="preview">
+              </div>
+            </div>
+          </div>
             <div class="row">
+              
+               
                 <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="file" class="custom-file-input" id="image" name="image" onchange="updateLabel()" style="padding: 10px;">
+                    <label class="custom-file-label" for="image">Choose Photo</label>
+                  </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Customer Name</label>
                     <input type="text" class="form-control" id="extraPrice" name="name" value="">
@@ -105,10 +118,22 @@
 </section>
   <!-- /.content -->
 </div>
-
+<script>
+  function updateLabel() {
+      var input = document.getElementById('image');
+      var preview = document.getElementById('preview');
+      var file = input.files[0];
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+</script>
 
 @section('js-place')
 <script>
+
  $(function () {
     $("#example1").DataTable();
     $('#example2').DataTable({
@@ -120,6 +145,7 @@
       "autoWidth": false,
     });
   });
+  
  
 
   

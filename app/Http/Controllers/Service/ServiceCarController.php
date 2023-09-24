@@ -4,6 +4,7 @@ namespace App\Http\Controllers\service;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ImageController;
 use App\Models\ServiceCar;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,11 @@ class ServiceCarController extends Controller
         $service_type = $request->service_type;
         $desc = $request->desc;
         $driver_id = $request->driver_id;
+        $short_desc = $request->short_desc;
+        $new_img_name = ImageController::uploadImage($request, 'service_car');
 
-        $query = "INSERT INTO service_cars(name, car_no, size, price, `desc`, driver_id, status,service_type) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
-        DB::insert($query, [$name, $car_no, $size, $price, $desc, $driver_id, 'active', $service_type]);
+        $query = "INSERT INTO service_cars(name, car_no, size, price, `desc`, driver_id, status,service_type,image_name,short_desc) VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?)";
+        DB::insert($query, [$name, $car_no, $size, $price, $desc, $driver_id, 'active', $service_type,$new_img_name,$short_desc]);
 
         return redirect()->route('serviceCars.index');
     }
