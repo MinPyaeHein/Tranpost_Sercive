@@ -20,6 +20,6 @@ class CustomerMiddleware
             return $next($request);
         }
 
-        return view('auth.login');
+        return back()->withError('Unauthorized access.');
     }
 }

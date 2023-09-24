@@ -35,12 +35,19 @@
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
-
+   
 
     <!-- Navbar -->
     @include('inc.navbar')
+    
 
     @include('inc.mainSidebar')
+
+    @if(session('error'))
+    <div class="alert alert-danger text-center" style="background-color: red; color: white; font-weight: bold;">
+        {{ session('error') }}
+    </div>
+    @endif
 
     <div>@yield('contents')</div>
 

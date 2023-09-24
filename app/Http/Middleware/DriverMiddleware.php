@@ -15,11 +15,11 @@ class DriverMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-       //dd(auth()->user()->type);
-       if (auth()->check() && auth()->user()->type === 'driver') {
-        return $next($request);
-    }
 
-    return abort(403, 'Unauthorized');
+        if (auth()->check() && auth()->user()->type === 'driver') {
+            return $next($request);
+        }
+
+        return back()->withError('Unauthorized access.');
     }
 }

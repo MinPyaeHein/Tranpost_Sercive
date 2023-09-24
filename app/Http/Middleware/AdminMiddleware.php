@@ -20,6 +20,7 @@ class AdminMiddleware
             return $next($request);
         }
 
-        return abort(403, 'Unauthorized');
+        return back()->withError('Unauthorized access.');
     }
+    
 }

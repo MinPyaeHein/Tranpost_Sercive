@@ -46,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{ route('customerHome.create') }}" class="nav-link">Sing In</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('customerHome.create') }}" class="nav-link">Log Out</a>
+            <a href="{{ route('logout') }}" class="nav-link">Log Out</a>
           </li>
           
           <li class="nav-item dropdown">
@@ -83,6 +83,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
    
     </div>
   </nav>
+  @if(session('error'))
+  <div class="alert alert-danger text-center" style="background-color: red; color: white; font-weight: bold;">
+      {{ session('error') }}
+  </div>
+  @endif
   <div>@yield('contents')</div>
   <footer class="main-footer">
     <!-- To the right -->

@@ -73,6 +73,11 @@
         </nav>
 
         <main class="py-4">
+            @if(session('error'))
+                <div class="alert alert-danger text-center" style="background-color: red; color: white; font-weight: bold;">
+                    {{ session('error') }}
+                </div>
+            @endif
             @yield('content')
         </main>
     </div>

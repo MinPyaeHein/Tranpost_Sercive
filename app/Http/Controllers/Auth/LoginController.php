@@ -24,7 +24,7 @@ class LoginController extends Controller
 
     function login(Request $request)
     {
-        // dd($request);
+
         $request->validate([
             'email' => ['email', 'required'],
             'password' => ['required'],
@@ -32,15 +32,19 @@ class LoginController extends Controller
         try {
             if (Auth::attempt($request->only(['email', 'password']))) {
                 $request->session()->regenerate();
-                //   dd("successful");
-                return redirect()->route('adminHome')->with('msg', 'User login successfully');
+                //  dd("Success Login", auth()->user()->type);
+                if (auth()->user()->type === 'driver') {
+                    return redirect()->route('customerOrder.index');
+                } else if (auth()->user()->type === 'customer') {
+                    return redirect()->route('customerHome.index');
+                } else if (auth()->user()->type === 'admin') {
+                    return  view('admin.home');
+                }
             } else {
-                //  dd("failed");
-                return redirect()->back()->with('msg', 'User not loged in');
+                return redirect()->route('login.show');
             }
         } catch (\Exception $e) {
-            // dd("failed");
-            return redirect()->back()->with('msg', 'User not loged in');
+            return redirect()->route('login.show');
         }
     }
 
