@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.appCus')
 @section('title') Group Structure @endsection
 
 @section('css-place')
@@ -18,7 +18,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Customer Orders Detail</h1>
+          <h1>Your Applied Order</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -49,9 +49,6 @@
         <!-- /.card-header -->
           <div class="card-body">
               <div class="row">
-               
-                  <input type="hidden" class="form-control" id="name" value="{{$order[0]->id}}" name="o_id">
-               
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Service Type ({{$order[0]->service_type}})</label><br>
@@ -61,10 +58,9 @@
                       <label for="exampleInputEmail1">Customer Name</label>
                       <input type="text" class="form-control" id="name" value="{{$order[0]->name}}" name="name">
                     </div>
-                   
                     <div class="form-group">
                       <label for="exampleInputEmail1">Driver ID</label>
-                      <input type="text" class="form-control" id="orderId" value="DID-{{$order[0]->driver_id}}" name="driver_id">
+                      <input type="text" class="form-control" id="orderId" value="DID-{{$order[0]->driver_id}}" name="order_id">
                     </div>
                     <div class="form-group">
                       <label>Conductions</label>
@@ -76,7 +72,6 @@
                       <select class="form-control select2" style="width: 100%;" name="status">
                         <option selected="selected">{{$order[0]->status}}</option>
                         <option>Cancelled</option>
-                        <option>In Progress</option>
                         <option>Finished</option>
                         <option>Waitting</option>
                       
@@ -115,7 +110,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Service Time</label>
-                        <input type="text" class="form-control" id="extraPrice" value="{{$order[0]->time}}" name="time">
+                        <input type="text" class="form-control" id="extraPrice" value="{{$order[0]->time}}" name="service_type">
                       </div>
                       <div class="form-group">
                           <label for="exampleInputEmail1">Note</label>
@@ -140,8 +135,8 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-              <button type="submit" class="btn btn-info">Update</button>
-              <button type="submit" class="btn btn-default float-right">Cancel</button>
+              <a href="{{route('customerHome.index')}}"  class="btn btn-info">Exit</a>
+              
           </div>
         </div>
       <!-- /.card -->
@@ -152,6 +147,7 @@
   </section>
   <!-- /.content -->
 </div>
+
 
 @section('js-place')
 <script>

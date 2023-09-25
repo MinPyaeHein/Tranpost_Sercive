@@ -55,7 +55,7 @@ class CustomerHomeController extends Controller
 
         $car = DB::select($query, [$ord_id]);
         $driver = DB::select($query_driver, [$ord_id]);
-       // dd($driver);
+        // dd($driver);
 
         return view('customer.OrderConfrimResult', compact(['car', 'order', 'driver']));
     }
@@ -78,5 +78,21 @@ class CustomerHomeController extends Controller
         $query = "INSERT INTO users (name, email, phone, password,address,national_id ,note,remember_token,created_at,updated_at,status,type,image_name) VALUES (?, ?, ?, ?,?,?,?,?,?,?,?,?,?)";
         DB::insert($query, [$name, $email, $phone, $hashedPassword, $address, $national_id, $note, null, $createdAt, null, 'Active', 'customer', $new_img_name]);
         return redirect()->route('customerHome.index');
+    }
+    public function showOrderByCustomer()
+    {
+        $id = auth()->user()->id;
+
+        $query = "SELECT c.*, s.*, c.image_name as c_img, c.name as car_name, o.* 
+                FROM orders o
+                JOIN service_cars c ON o.car_id = c.id
+                JOIN users s ON o.user_id = s.id
+                WHERE o.status != 'Finished' and o.status != 'Canceled' AND o.user_id = '$id'
+                ORDER BY o.created_at DESC
+                LIMIT 1";
+
+        $order = DB::select($query);
+
+        return view('customer.showOrderByCustomer', compact('order'));
     }
 }

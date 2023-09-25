@@ -60,16 +60,16 @@
               <tbody>
               @foreach ($orders as $index => $order)
                 <tr>
-                  <td>OID-{{$order->id}}</td>
+                  <td>OID-{{$order->o_id}}</td>
                   <td>{{$order->service_type}}</td>
                   <td>{{$order->name}}</td>
                   <th>DID-{{$order->driver_id}}</th>
-                  <td>OID-{{$order->user_id}}</td>
+                  <td>CID-{{$order->u_id}}</td>
                   <td>{{$order->phone}}</td>
                   <td>{{$order->conduction}}</td>
                   <td>{{$order->address}}</td>
                   <td>{{$order->status}}</td>
-                  <td><a href="{{ route('customerOrder.edit',123) }}" class="btn-sm btn-info">Detail</a></td>
+                  <td><a href="{{ route('customerOrder.edit',$order->o_id) }}" class="btn-sm btn-info">Detail</a></td>
                   <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
                 </tr>
               @endforeach

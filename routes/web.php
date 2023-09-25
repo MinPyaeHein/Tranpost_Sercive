@@ -17,15 +17,14 @@ use App\Http\Controllers\service\ServiceFeeController;
 use App\Http\Controllers\service\ServiceTypeMatchController;
 use Illuminate\Support\Facades\Route;
 
-
-
 Route::get('/', function () {
     return view('auth.login');
 });
 
-
 Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::get('/customerOrder', [CustomerHomeController::class, 'index'])->name('customerOrder.index');
     Route::resource("/customerOrder", CustomerOrderController::class);
+    Route::post('/editOrder', [CustomerOrderController::class, 'editOrder'])->name('editOrder');
     Route::get('/adminHome', [AdminController::class, 'home'])->name('adminHome');
     Route::resource("/admins", AdminController::class);
     Route::resource("/admins", AdminController::class);
@@ -40,7 +39,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::resource("/serviceCarDrivers", ServiceCarDriverController::class);
     Route::get('/serviceCarDriverCreate', [ServiceCarDriverController::class, 'create'])->name('serviceCarDriverCreate');
     Route::resource("/serviceTypeMatch", ServiceTypeMatchController::class);
+
     Route::resource("/customers", CustomerController::class);
+    Route::get('/customers/destroy/{id}', [CustomerController::class, 'destroy'])->name('destroyCustomer');
+
     Route::resource("/customerHistory", CustomerOrderHistoryController::class);
     Route::resource("/customerPayment", CustomerPaymentController::class);
     Route::resource("/customerPaid", CustomerPaidController::class);
@@ -50,9 +52,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'driver']], function () {
-
-   
-
+    Route::post('/editOrder', [CustomerOrderController::class, 'editOrder'])->name('editOrder');
+    Route::get('/customerOrder', [CustomerHomeController::class, 'index'])->name('customerOrder.index');
     Route::resource("/customerOrder", CustomerOrderController::class);
     Route::get('/customerHome/order/{id}', [CustomerHomeController::class, 'orderDetail'])->name('customer.orderDetail');
     Route::post('/customerHome/orderConfrim', [CustomerHomeController::class, 'orderConfrim'])->name('customer.orderConfrim');
@@ -60,6 +61,7 @@ Route::group(['middleware' => ['auth', 'driver']], function () {
 
 
 Route::group(['middleware' => ['auth', 'customer']], function () {
+    Route::get('/showOrderByCustomer', [CustomerHomeController::class, 'showOrderByCustomer'])->name('showOrderByCustomer');
     Route::get('/customerHome/order/{id}', [CustomerHomeController::class, 'orderDetail'])->name('customer.orderDetail');
     Route::post('/customerHome/orderConfrim', [CustomerHomeController::class, 'orderConfrim'])->name('customer.orderConfrim');
 });

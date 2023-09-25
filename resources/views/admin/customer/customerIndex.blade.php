@@ -60,14 +60,14 @@
              @foreach ($users as $index => $user)
               <tr>
                 <td>
-                  <img src=" {{asset('storage/customer/avatar.png')}}" alt="Image" width="90" height="60">
+                  <img src=" {{asset('storage/customers/'.$user->image_name)}}" alt="Image" width="90" height="60">
                 </td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->phone}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->national_id}}</td>
                 <td>{{$user->status}}</td>
-                <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
+                <td><a href="{{ route('destroyCustomer',$user->id) }}" class="btn-sm btn-danger">Delete</a></td>
               </tr>
              @endforeach
  

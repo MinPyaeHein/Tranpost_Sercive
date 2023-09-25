@@ -77,6 +77,10 @@
                       <label for="exampleInputEmail1">Driver Phone:</label>
                       {{$driver[0]->phone}}
                     </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Service Conduction:</label>
+                      {{$order[0]->conduction}}
+                    </div>
                   
                     <div class="form-group">
                     Looking to speak to someone right now?
