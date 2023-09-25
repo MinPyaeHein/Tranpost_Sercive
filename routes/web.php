@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
-    Route::get('/customerOrder', [CustomerHomeController::class, 'index'])->name('customerOrder.index');
+    Route::get('/customerOrder', [CustomerOrderController::class, 'index'])->name('customerOrder.index');
     Route::resource("/customerOrder", CustomerOrderController::class);
     Route::post('/editOrder', [CustomerOrderController::class, 'editOrder'])->name('editOrder');
     Route::get('/adminHome', [AdminController::class, 'home'])->name('adminHome');
@@ -53,7 +53,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 Route::group(['middleware' => ['auth', 'driver']], function () {
     Route::post('/editOrder', [CustomerOrderController::class, 'editOrder'])->name('editOrder');
-    Route::get('/customerOrder', [CustomerHomeController::class, 'index'])->name('customerOrder.index');
+    Route::get('/customerOrder', [CustomerOrderController::class, 'index'])->name('customerOrder.index');
+    Route::get('/customersOrder/destroy/{id}', [CustomerOrderController::class, 'destroyCustomerOrder'])->name('destroyCustomerOrder');
     Route::resource("/customerOrder", CustomerOrderController::class);
     Route::get('/customerHome/order/{id}', [CustomerHomeController::class, 'orderDetail'])->name('customer.orderDetail');
     Route::post('/customerHome/orderConfrim', [CustomerHomeController::class, 'orderConfrim'])->name('customer.orderConfrim');

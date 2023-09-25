@@ -68,9 +68,9 @@
                   <td>{{$order->phone}}</td>
                   <td>{{$order->conduction}}</td>
                   <td>{{$order->address}}</td>
-                  <td>{{$order->status}}</td>
+                  <td>{{$order->o_status}}</td>
                   <td><a href="{{ route('customerOrder.edit',$order->o_id) }}" class="btn-sm btn-info">Detail</a></td>
-                  <td><a href="#" class="btn-sm btn-danger">Delete</a></td>
+                  <td><a href="{{ route('destroyCustomerOrder',$order->o_id) }}" class="btn-sm btn-danger">Delete</a></td>
                 </tr>
               @endforeach
           

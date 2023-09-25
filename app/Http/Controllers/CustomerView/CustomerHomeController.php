@@ -40,16 +40,10 @@ class CustomerHomeController extends Controller
         $createdAt = now()->toDateTimeString();
         $query = "INSERT INTO orders (time, address, status, phone, `desc`, user_id, car_id, created_at, updated_at, conduction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         DB::insert($query, [$time, $address, 'Waiting', $phone, $desc, $cus_id, $car_id, $createdAt, null, $conduction]);
-
         $query = "SELECT * FROM orders ORDER BY id DESC LIMIT 1;";
         $order = DB::select($query);
         $ord_id = $order[0]->id;
-        // $query = "SELECT * FROM service_cars where id=?";
-        // 
-        //  dd($ord_id);
-        // $car = DB::select($query, [$ord_id]);
-        // dd($car);
-
+    
         $query = "SELECT c.* FROM orders o,service_cars c where o.id=? AND o.car_id=c.id";
         $query_driver = "SELECT d.* FROM orders o,service_cars c,users d where o.id=? AND o.car_id=c.id and c.driver_id=d.id";
 
@@ -82,12 +76,11 @@ class CustomerHomeController extends Controller
     public function showOrderByCustomer()
     {
         $id = auth()->user()->id;
-
         $query = "SELECT c.*, s.*, c.image_name as c_img, c.name as car_name, o.* 
                 FROM orders o
                 JOIN service_cars c ON o.car_id = c.id
                 JOIN users s ON o.user_id = s.id
-                WHERE o.status != 'Finished' and o.status != 'Canceled' AND o.user_id = '$id'
+                WHERE o.status != 'Finished' and o.status != 'Canceled' and o.status != 'inactive' AND o.user_id = '$id'
                 ORDER BY o.created_at DESC
                 LIMIT 1";
 

@@ -10,18 +10,17 @@ class CustomerOrderController extends Controller
 {
     public function index()
     {
-        $query = "SELECT o.id as o_id,o.user_id as u_id,o.*,c.* FROM orders o
-        JOIN service_cars c ON o.car_id = c.id
-        WHERE o.status = 'Waiting'";
+        $query = "SELECT o.id as o_id, o.user_id as u_id, o.*, c.*,o.status as o_status
+        FROM orders o
+        JOIN service_cars c ON o.car_id = c.id where o.status!='inactive'
+        ORDER BY o.created_at ASC";
         $orders = DB::select($query);
-        //dd($orders);
         return view('admin.customer.customerOrderIndex', compact('orders'));
     }
     public function edit(string $id)
     {
-        $query = "SELECT c.*,s.*,c.image_name as c_img,c.name as car_name,o.* FROM orders o,service_cars c,users s where o.car_id=c.id and o.user_id=s.id and o.status='Waiting' and o.id='$id'";
+        $query = "SELECT c.*,s.*,c.image_name as c_img,c.name as car_name,o.* FROM orders o,service_cars c,users s where o.car_id=c.id and o.user_id=s.id and o.id='$id'";
         $order = DB::select($query);
-        // dd($order);
         return view('admin.customer.customerOrderDetail', compact('order'));
     }
     public function editOrder(Request $request)
@@ -29,7 +28,6 @@ class CustomerOrderController extends Controller
 
 
         $o_id = $request->o_id;
-
         $name = $request->name;
         $status = $request->status;
         $address = $request->address;
@@ -46,7 +44,6 @@ class CustomerOrderController extends Controller
         status = ?,
         phone = ?,
         `desc` = ?,
-       
         created_at = ?,
         updated_at = NULL,
         conduction = ?
@@ -66,7 +63,17 @@ class CustomerOrderController extends Controller
 
         $query = "SELECT c.*,s.*,c.image_name as c_img,c.name as car_name,o.* FROM orders o,service_cars c,users s where o.car_id=c.id and o.user_id=s.id and o.id='$o_id'";
         $order = DB::select($query);
-        //dd($order);
         return view('admin.customer.customerOrderDetail', compact('order'));
+    }
+    public function destroyCustomerOrder(string $o_id)
+    {
+
+        $query = "UPDATE orders SET
+        status = 'inactive'
+        WHERE id = ?";
+        DB::update($query, [$o_id]);
+        $query = "SELECT c.*,s.*,c.image_name as c_img,c.name as car_name,o.* FROM orders o,service_cars c,users s where o.car_id=c.id and o.user_id=s.id and o.id='$o_id'";
+        $order = DB::select($query);
+        return redirect()->route('customerOrder.index');
     }
 }
